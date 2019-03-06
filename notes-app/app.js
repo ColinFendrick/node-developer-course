@@ -1,4 +1,3 @@
-const fs = require('fs');
+const { getNotes } = require('./notes');
 
-fs.writeFileSync('notes.txt', 'Introduction text');
-fs.appendFileSync('notes.txt', '\n\n Something else');
+console.log(getNotes());
