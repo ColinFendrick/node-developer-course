@@ -22,8 +22,13 @@ const removeNote = title => {
     saveNotes(notesAfterRemoval);
   } else {
     console.log(chalk.red.bold(`No note with title: ${title} found.`))
-  }
-  
+  }  
+};
+
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.yellow('Your notes:'))
+  notes.forEach(({ title, body }) => console.log(`${title}: ${body}`))
 };
 
 const loadNotes = () => {
@@ -36,4 +41,4 @@ const loadNotes = () => {
 
 const saveNotes = notes => fs.writeFileSync('notes.json', JSON.stringify(notes));
 
-module.exports = { addNote, removeNote };
+module.exports = { addNote, removeNote, listNotes };
