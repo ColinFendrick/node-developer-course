@@ -1,6 +1,6 @@
 const yargs = require('yargs');
 
-const { getNotes } = require('./notes');
+const { getNotes, addNote } = require('./notes');
 
 // add, remove, read, list
 // Create add command
@@ -19,7 +19,9 @@ yargs.command({
       type: 'string'
     }
   },
-  handler: function (argv) { console.log('Title: ' + argv.title); console.log('Body: ' + argv.body); }
+  handler: function ({ title, body }) { 
+    addNote(title, body);
+  }
 });
 
 // Create remove command

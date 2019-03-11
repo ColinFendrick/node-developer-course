@@ -6,4 +6,4 @@ const data = JSON.parse(dataBuffer.toString());
 data.name = 'Colin Fendrick';
 data.age = 28;
 fs.writeFileSync('1-json.json', JSON.stringify(data));
-console.log(data)
+console.log(data);
