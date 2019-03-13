@@ -9,6 +9,21 @@ const handleResponse = (error, res, callback) => {
   else { callback(res); }
 };
 
+const geocode = (address, callback) => {
+  request({ url: geoUrl, json: true }, (error, res) => {
+    const locationResponseHandler = () => {
+      if (res.body.features.length === 0) { console.log('Cannot find any matching locations.') }
+      else {
+        const longitude = res.body.features[0].center[0];
+        const latitude = res.body.features[0].center[1];
+        console.log(longitude, latitude);
+      }
+    };
+
+    handleResponse(error, res, locationResponseHandler);
+  });
+}
+
 request({ url, json: true }, (error, res) => {
   const success = () => console.log(
     `It's currently ${Math.round(res.body.currently.temperature)}°. There is a ${res.body.currently.precipProbability}% change of rain.
