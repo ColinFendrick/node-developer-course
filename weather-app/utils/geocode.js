@@ -17,4 +17,18 @@ const geoCode = (address, callback) => {
   });
 };
 
-module.exports = { geoCode };
+const forecast = (lat, lon, callback) => {
+  const url = 'https://api.darksky.net/forecast/17d2639d3d7edac460b5d2a1c741e916/' + lat + ',' + lon;
+  request({ url, json: true}, (error, res) => {
+    if (error) {
+      callback('Cannot connect to forecast services');
+    } else if (res) {
+      console.log(
+        `It's currently ${Math.round(res.body.currently.temperature)}°. There is a ${res.body.currently.precipProbability}% change of rain.
+        \nToday it will be ${res.body.daily.data[0].summary.toLowerCase()}`
+      );
+    };
+  });
+};
+
+module.exports = { geoCode, forecast };
