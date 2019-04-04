@@ -2,7 +2,9 @@
 
 !*/
 !*.html
+!*.css
 !*.js
 !*.jsx
 !*.json
+!*.png
 node_modules/
