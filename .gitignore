@@ -2,6 +2,7 @@
 
 !*/
 !*.html
+!*.hbs
 !*.css
 !*.js
 !*.jsx
