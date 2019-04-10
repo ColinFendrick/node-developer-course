@@ -3,10 +3,16 @@ const express = require('express')
 
 const app = express()
 
+// Define paths for Express config
+const publicDirectoryPath = path.join(__dirname, '..', '/public')
+const viewsPath = path.join(__dirname, '../templates')
+
+// Configure Express and set paths
+app.use(express.static(publicDirectoryPath))
 app.set('view engine', 'hbs')
-app.use(express.static(path.join(__dirname, '..', '/public')))
+app.set('views', viewsPath)
 
-
+// Define routes
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather App',
