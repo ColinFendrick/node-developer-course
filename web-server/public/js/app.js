@@ -6,7 +6,7 @@ const messageTwo = document.querySelector('#message-two')
 weatherForm.addEventListener('submit', e => {
   e.preventDefault()
 
-  messageOne.textContent = 'Rendering...'
+  messageOne.textContent = 'Rendering'
   messageTwo.textContent = ''
   fetch(`http://localhost:3000/weather?address=${searchForm.value.replace(/[^a-zA-Z ]/g, '')}`).then(res => {
     res.json().then(data => {
