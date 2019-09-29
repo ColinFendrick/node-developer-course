@@ -8,7 +8,7 @@ weatherForm.addEventListener('submit', e => {
 
   messageOne.textContent = 'Rendering'
   messageTwo.textContent = ''
-  fetch(`http://localhost:3000/weather?address=${searchForm.value.replace(/[^a-zA-Z ]/g, '')}`).then(res => {
+  fetch(`/weather?address=${searchForm.value.replace(/[^a-zA-Z ]/g, '')}`).then(res => {
     res.json().then(data => {
       if (data.error) {
         console.log(data.error)
