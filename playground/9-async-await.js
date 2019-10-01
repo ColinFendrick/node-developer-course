@@ -8,12 +8,12 @@ const add = (a, b) => new Promise((resolve, reject) => {
     }, 2000)
   })
 
-const doWork = async () => {
-  const sum = await add(1, 9)
-  return await add(sum, 47)
-}
+// const doWork = async () => {
+//   const sum = await add(1, 9)
+//   return await add(sum, 47)
+// }
 
-// const doWork = async (...args) => args.reduce((acc, curr) => await add(add, curr))
+const doWork = (...args) => args.reduce(async (acc, curr) => await add(acc, curr))
 
-doWork(1, 2, 3).then(res => console.log('result:', res))
-  .catch(e => console.log(e))
+// doWork(1, 2, 3).then(res => console.log('result:', res))
+//   .catch(e => console.log(e))
